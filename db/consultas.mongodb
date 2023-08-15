@@ -1,0 +1,2 @@
+use("db_campus_bodegas");
+db.getCollection("bodegas").find()
