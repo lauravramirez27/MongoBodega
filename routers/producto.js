@@ -53,7 +53,7 @@ appProducto.get("/",limitGrt(),async(req,res)=>{
     }
 */
 
-appProducto.post("/",async (req,res)=>{
+appProducto.post("/",limitGrt(),async (req,res)=>{
     let data = req.body;
     let idR = Math.floor(Math.random() * (500 - 50 + 1)) + 50;
     try {

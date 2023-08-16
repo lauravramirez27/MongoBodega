@@ -53,6 +53,7 @@ db.inventarios.aggregate([
   /**Realizar un EndPoint que permita insertar un productos y a su vez asigne
 una cantidad inicial del mismo en la tabla inventarios en una de las bodegas
 por default. */
-  
 
+use("db_campus_bodegas");
+db.getCollection("inventarios").find({id_producto:1, id_bodega:1})
 

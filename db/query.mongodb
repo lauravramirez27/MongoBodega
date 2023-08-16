@@ -510,12 +510,7 @@ db.productos.insertOne({
     created_by:3
 })
 
-use("db_campus_bodegas");
-db.inventarios.insertOne({
-    id:5,
-    id_bodega:1,
-    id_producto:
-})
+
 
 // data insertada
 use("db_campus_bodegas");
