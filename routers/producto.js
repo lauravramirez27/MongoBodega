@@ -60,7 +60,7 @@ appProducto.post("/",async (req,res)=>{
         let insert = await productos.insertOne(data);
         let inserIn = await inventarios.insertOne({
             id:idR,
-            id_bodega:1,
+            id_bodega:1,        
             id_producto:data.id,
             cantidad:1,
             created_by:166
