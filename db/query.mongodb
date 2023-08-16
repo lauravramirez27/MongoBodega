@@ -446,7 +446,7 @@ db.createCollection("productos", {
         $jsonSchema: {
             bsonType: 'object',
             additionalProperties: false,
-            required: ['id', 'nombre', 'estado', 'created_by'],
+            required: ['id', 'nombre', 'estado', 'descripcion',"created_by"],
             properties: {
                 _id:{
                     bsonType:'objectId'
@@ -459,14 +459,15 @@ db.createCollection("productos", {
                     bsonType: 'string',
                     description: 'El nombre es obligatorio'
                 },
-                descripcion: {
-                    bsonType: 'string',
-                    description: 'La descripción es obligatoria'
-                },
                 estado: {
                     bsonType: 'int',
                     description: 'El estado es obligatorio'
                 },
+                descripcion: {
+                    bsonType: 'string',
+                    description: 'La descripción es obligatoria'
+                },
+                
                 created_by: {
                     bsonType: 'int',
                     description: 'El created_by es obligatorio'
@@ -477,7 +478,7 @@ db.createCollection("productos", {
                     properties: {
                         update_by: {
                         bsonType: 'int',
-                        description: 'El update_by es obligatorio'
+                        description: 'El update_by no es obligatorio'
                         },
                         created_at: {
                             bsonType: 'date',
@@ -497,6 +498,25 @@ db.createCollection("productos", {
         }
     }
 });
+use("db_campus_bodegas");
+db.productos.drop();
+
+use("db_campus_bodegas");
+db.productos.insertOne({
+    id: 1,
+    nombre: "chocoate",
+    descripcion: "Es rico",
+    estado: 1,
+    created_by:3
+})
+
+use("db_campus_bodegas");
+db.inventarios.insertOne({
+    id:5,
+    id_bodega:1,
+    id_producto:
+})
+
 // data insertada
 use("db_campus_bodegas");
 db.productos.insertMany([

@@ -1,2 +1,58 @@
+/**1.Realizar un EndPolnt que permita listar todas las bodegas ordenadas */
 use("db_campus_bodegas");
-db.getCollection("bodegas").find()
+db.getCollection("bodegas").find().sort({nombre:"1"})
+
+/**Realizar un EndPolnt que permita crear una bodegas.(agregar en los
+comentarios de la función los datos de entrada). */
+
+
+
+
+
+
+/**Realizar un EndPoint que permita listar todos los productos en orden
+descendente por el campo "Total".
+• El campo "Total" es la cantidad de unidades que la empresa tiene
+de este producto, considerando la unión de todas las bodegas, es
+decir que el dato como tal no existe en la base de datos,sino se debe
+calcular. Si la Bodega A tiene 1O unidades, la Bodega B tiene 5
+unidades y la Bodega C tiene 3 unidades. Total= 18. */
+
+use("db_campus_bodegas");
+db.inventarios.aggregate([
+    {
+      $group: {
+        _id: "$id_producto",
+        total: { $sum: "$cantidad" }
+      }
+    },
+    {
+      $lookup: {
+        from: "productos", 
+        localField: "_id",
+        foreignField: "id", 
+        as: "producto"
+      }
+    },
+    {
+      $unwind: "$producto"
+    },
+    {
+      $sort: { total: -1 }
+    },
+    {
+      $project: {
+        _id: 0,
+        id_producto: "$_id",
+        total: 1,
+        nombre_producto: "$producto.nombre" 
+      }
+    }
+  ])
+
+  /**Realizar un EndPoint que permita insertar un productos y a su vez asigne
+una cantidad inicial del mismo en la tabla inventarios en una de las bodegas
+por default. */
+  
+
+
