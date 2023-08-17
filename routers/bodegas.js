@@ -20,10 +20,10 @@ appBodega.post("/",limitGrt(),async(req,res)=>{
         let data = req.body;
         let insert = await Bodega.insertOne(data)
    
-    if (insert.insertedId === undefined ) {
-        res.send({status:400, message: "Error al insertar la data"});
+    if (insert.insertedId !== undefined ) {
+        res.send({status:200, message: "Se ha ingresado correctamente la data"});
     }else{
-        res.status(200).send({msg: "Se ha ingresado correctamente la data"})
+        res.status(400).send({msg: "Error al insertar la data"})
     
     }
     
