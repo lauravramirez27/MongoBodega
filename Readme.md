@@ -2,7 +2,6 @@
 
 Este proyecto está diseñado para abordar los desafíos que enfrentan las empresas en la gestión de sus bodegas, desde el control de inventario hasta el seguimiento de historiales y la administración de productos. Mediante la implementación de una  base de datos y la creación de endpoints que permiten consultas precisas, nuestro sistema busca simplificar y optimizar la administración de bodegas.
 
-
 ## __Instalacion:__
 
 * Asegurarse de tener instalado Node.js y npm en tu sistema
@@ -22,7 +21,7 @@ Este proyecto está diseñado para abordar los desafíos que enfrentan las empre
 
 Con el anterior comando se instalara automaticamente todas las dependencias que se encuentran en el archivo ``package.json``
 
-**3. Creacion de la base datos:**En el proyecto encontraras un archivo llamado ``query.mongodb`` en la ruta "MongoBodega\db\query.mongodb" donde podras ejecutar el script con la creacion de la base de datos e insercion de datos de prueba.
+**3. Creacion de la base datos:**  En el proyecto encontraras un archivo llamado ``query.mongodb`` en la ruta "MongoBodega\db\query.mongodb" donde podras ejecutar el script con la creacion de la base de datos e insercion de datos de prueba.
 
 **4. Iniciar el servidor:** Para iniciar el servidor debes ejecutar el siguiente comando:
 ``npm run dev``
@@ -68,7 +67,7 @@ Se debe enviar en el Body los datos de la siguiente manera:
     "nombre": "A Bodega",
     "id_responsable": 11,
     "estado": 1,
-    
+  
   }
 ```
 
@@ -77,7 +76,7 @@ Se debe enviar en el Body los datos de la siguiente manera:
 **METODO:GET**
 
 * listar todos los productos en orden
-descendente por el campo "Total".
+  descendente por el campo "Total".
 
 URL para generar token de este endPoint:
 
@@ -91,8 +90,8 @@ Una vez ingresado el token en el encabezado(header) de tu solicitudes puedes hac
 **METODO:POST**
 
 * Crea un productos y a su vez asigna
-una cantidad inicial del mismo en la tabla inventarios en una de las bodegas
-por default.
+  una cantidad inicial del mismo en la tabla inventarios en una de las bodegas
+  por default.
 
 ``http://127.10.10.10:5005/token/Productos``
 
@@ -105,7 +104,7 @@ Se debe enviar en el Body los datos de la siguiente manera:
   "descripcion": "Es rico",
   "estado": 1,
   "created_by": 12
-    
+  
   }
 ```
 
@@ -126,14 +125,10 @@ Se debe enviar en el Body los datos de la siguiente manera:
    "id_producto": 13,
    "cantidad": 1,
    "created_by": 166
-    
+  
   }
 ```
 
 <hr>
 
-
-**Nota:**Este proyecto tiene un limite de consultas (20)
-
-
-
+**Nota:** Este proyecto tiene un limite de consultas,Es decir solo se pueden hacer 20 consultas.
