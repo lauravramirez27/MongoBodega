@@ -1,15 +1,15 @@
 import {con} from "../db/atlas.js";
 import {limitGrt} from "../limit/config.js"
 import { Router } from "express";
+import { proxyVerify } from "../middlware/proxyVerify.js";
 
 const appProducto = Router();
 let db = await con();
 let inventarios = db.collection("inventarios");
 let productos = db.collection("productos");
 
-appProducto.get("/",limitGrt(),async(req,res)=>{
-    if(!req.rateLimit) return;
-    console.log(req.rateLimit);
+appProducto.get("/",limitGrt(),proxyVerify,async(req,res)=>{
+    try {
     let resul = await inventarios.aggregate([
         {
           $group: {
@@ -41,6 +41,9 @@ appProducto.get("/",limitGrt(),async(req,res)=>{
         }
       ]).toArray();
       res.send(resul);
+    } catch (error) {
+      res.status(400).send({status:400, message:error })
+    }
     
 });
 
@@ -70,7 +73,6 @@ appProducto.post("/",limitGrt(),async (req,res)=>{
         }else{
             res.send({status:200, message: "La data se inserto correctamente"});
         }
-        console.log(insert.insertedId === inserIn.insertedId);
     } catch (error) {
         res.status(400).send({error: error});
     }
