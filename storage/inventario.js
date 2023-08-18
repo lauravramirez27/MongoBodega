@@ -14,7 +14,7 @@ import { IsDefined } from 'class-validator';
 //   "id_producto": 13,
 //   "cantidad": 1,
 //   "created_by": 166
-export class Dinventario {
+export class Inventario {
     constructor(p1, p2, p3, p4) {
         this.id = p1;
         this.id_bodega = p2;
@@ -26,19 +26,19 @@ __decorate([
     Expose({ name: 'id' }),
     IsDefined({ message: () => { throw { status: 422, message: `La id es obligatoria` }; } }),
     __metadata("design:type", Number)
-], Dinventario.prototype, "id", void 0);
+], Inventario.prototype, "id", void 0);
 __decorate([
     Expose({ name: 'id_bodega' }),
     IsDefined({ message: () => { throw { status: 422, message: `el id de bodega es obligatoria` }; } }),
     __metadata("design:type", Number)
-], Dinventario.prototype, "id_bodega", void 0);
+], Inventario.prototype, "id_bodega", void 0);
 __decorate([
     Expose({ name: 'id_producto' }),
     IsDefined({ message: () => { throw { status: 422, message: `el id de producto es obligatoria` }; } }),
     __metadata("design:type", Number)
-], Dinventario.prototype, "id_producto", void 0);
+], Inventario.prototype, "id_producto", void 0);
 __decorate([
     Expose({ name: 'cantidad' }),
     IsDefined({ message: () => { throw { status: 422, message: `La  cantidad es obligatoria` }; } }),
     __metadata("design:type", Number)
-], Dinventario.prototype, "cantidad", void 0);
+], Inventario.prototype, "cantidad", void 0);

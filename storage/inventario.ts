@@ -8,7 +8,7 @@ import { IsDefined} from 'class-validator';
 //   "created_by": 166
 
 
-export class Dinventario{
+export class Inventario{
     @Expose({ name: 'id' })
     @IsDefined({message: ()=>{ throw {status: 422, message: `La id es obligatoria`}}})
     id: number;
