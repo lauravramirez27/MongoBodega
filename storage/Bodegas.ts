@@ -10,7 +10,7 @@ import { IsDefined } from 'class-validator';
   }
  */
 
-export class DBodega {
+export class Bodega {
   @Expose({ name: 'id' })
   @IsDefined({ message: () => { throw { status: 422, message: 'El id es obligatorio' } } })
   id: number;

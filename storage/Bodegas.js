@@ -18,7 +18,7 @@ import { IsDefined } from 'class-validator';
     
   }
  */
-export class DBodega {
+export class Bodega {
     constructor(p1, p2, p3, p4) {
         this.id = p1;
         this.nombre = p2;
@@ -30,19 +30,19 @@ __decorate([
     Expose({ name: 'id' }),
     IsDefined({ message: () => { throw { status: 422, message: 'El id es obligatorio' }; } }),
     __metadata("design:type", Number)
-], DBodega.prototype, "id", void 0);
+], Bodega.prototype, "id", void 0);
 __decorate([
     Expose({ name: 'nombre' }),
     IsDefined({ message: () => { throw { status: 422, message: 'El nombre es obligatorio y de tipo string' }; } }),
     __metadata("design:type", String)
-], DBodega.prototype, "nombre", void 0);
+], Bodega.prototype, "nombre", void 0);
 __decorate([
     Expose({ name: 'id_responsable' }),
     IsDefined({ message: () => { throw { status: 422, message: 'El id de responsable es obligatorio y de tipo numerico' }; } }),
     __metadata("design:type", Number)
-], DBodega.prototype, "id_responsable", void 0);
+], Bodega.prototype, "id_responsable", void 0);
 __decorate([
     Expose({ name: 'estado' }),
     IsDefined({ message: () => { throw { status: 422, message: 'El estado es obligatorio y de tipo numerico' }; } }),
     __metadata("design:type", Number)
-], DBodega.prototype, "estado", void 0);
+], Bodega.prototype, "estado", void 0);
